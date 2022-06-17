@@ -2,16 +2,34 @@
     width: 30%;
     margin-bottom: 10px;
     margin-left: 10px;
+    margin-top: 10px;
 }
 
-h3,h1,h2, h4{
+h3,h1,h2, h4, .nav{
     font-family: Courier, monospace;
 }
 
-h1, h2, h3, h4{
+h3, h4{
     text-align: center;
     margin: 0px;
     padding: 3px;
+}
+
+h1{
+    margin: 0px;
+    padding: 3px;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+}
+
+h2{
+    color: #b21e4a;
+    display: none;
+    font-size: 30px;
+}
+
+.visible{
+    display: block;
 }
 
 h4, p{
@@ -26,16 +44,74 @@ h3{
     background-color: #383838;
 }
 
+#search-button, #clear{
+    background-color: #1a1a1d;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+    color: gray;
+}
+
+button{
+    border: 0;
+    margin-top: 4px;
+    font-family: "Poppins", sans-serif;
+}
+
+form{
+    position: relative; top: -100px; left: 1050px;
+}
+
+input{
+    background-color: #1a1a1d;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 30px;
+    color: gray;
+    font-family: "Poppins", sans-serif;
+    width: 100px;
+}
+
+.topnav {
+    background-color: #383838;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav .nav {
+    float: left;
+    background-color: #383838;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+
+  }
+  
+  /* Change the color of links on hover */
+  .topnav .nav:hover {
+    background-color: gray;
+    color: black;
+  }
+
 .movie-grid{
-    display: inline-grid;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 4%;
     row-gap: 20px;
     width: 100%;
-    /* padding-left: 2%;
-    padding-right: 2%; */
+    justify-content: space-evenly;
+    /* margin-left: 50px;
+    margin-right: 50px; */
+    /* padding-left: 20px;
+    padding-right: 20px; */
     /* margin-left: 2%;
     margin-right: 2%; */
+}
+
+.rest{
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 @media only screen and (min-width: 500px) {
@@ -62,12 +138,6 @@ h3{
     }
 }
 
-
-
-/* .movie-card{
-
-} */
-
 body{
     margin-bottom: 2%;
     margin-left: 0px;
@@ -80,6 +150,7 @@ body{
     background-color:#383838;
     margin-bottom: 2%;
     margin-top: 0px;
+    height: 130px;
     /* opacity: 80%; */
 }
 
@@ -89,8 +160,16 @@ img{
     margin-bottom: 5%;
 }
 
+img:hover{
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    transition: 0.2s ease;
+}
+
 #flixter{
     background-color: #6f2232;
+    font-size: 50px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;

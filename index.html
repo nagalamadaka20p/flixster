@@ -10,15 +10,31 @@
 </head>
 <body>
     <div class="heading">
-        <h1><span id = "flixter">Flixter</span></h1>
-        <h2>Current Movies</h2>
-        <form id="form"><input type="input" id="search" placeholder="Search Movies...">
-            <button type="submit" class="btn">Search</button>
+        <h1><span id = "flixter">Flixster</span></h1>
+        <!-- <h2>Current Movies</h2> -->
+        <div class="topnav">
+            <button class="btn nav" id="nowplaying">Now Playing</button>
+            <button class="btn nav" id="popularmovies">Upcoming Movies</button>
+            <button class="btn nav" id="toprated">Top Rated</button>
+            <!-- <a class="active" href="#home">Now Playing</a>
+            <a href="#about">Popular Movies</a>
+            <a href="#contact">Top Rated</a> -->
+        </div>
+        <form id="form">
+            <input type="input" id="search" placeholder="Search Movies...">
+            <button type="submit" class="btn" id="search-button">Search</button>
             <button type="click" class="btn" id = "clear">Clear</button>
-            
         </form>
     </div>
+    <div class="rest">
+
+    
+    <h2 class="visible" id="nowplayingh">Now Playing</h2>
+    <h2 id="popularmoviesh">Upcoming Movies</h2>
+    <h2 id="topratedh">Top Rated</h2>
     <div class="movie-grid">
+        
+    </div>
     </div>
     <!-- <button type="click" class="btn" id = "load">Load More</button> -->
     <script src = "script.js"></script>
