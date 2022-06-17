@@ -172,7 +172,7 @@ function normalize(){
     else{
         upcomingMovies.forEach(displayMovies)
     }
-    allMovies.forEach(displayMovies)
+    // allMovies.forEach(displayMovies)
     console.log("all", allMovies)
 }
 
