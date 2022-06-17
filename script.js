@@ -37,7 +37,6 @@ function displayMovies(movie){
     `
 }
 
-// movies.forEach(addMovies)
 const fetchMovies = async () => {
     try{
         if (movie_cat == "now_playing"){
@@ -51,24 +50,22 @@ const fetchMovies = async () => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movie_cat}?api_key=${MY_API_KEY}&language=en-US&page=${pageNum}`)
         const results = await response.json();
         movies = results.results
-        console.log(movies)
-        // movies.forEach(displayMovies)
+
         movies.forEach(movie => allMovies.push(movie))
         if (movie_cat == "now_playing"){
             movies.forEach(movie => nowPlayingMovies.push(movie))
+            movieGridElem.innerHTML = ``
             nowPlayingMovies.forEach(displayMovies)
-            console.log('nowPlayingMovies: ', nowPlayingMovies);
         } else if (movie_cat == "top_rated"){
             movies.forEach(movie => topRatedMovies.push(movie))
+            movieGridElem.innerHTML = ``
             topRatedMovies.forEach(displayMovies)
-            console.log('topRatedMovies: ', topRatedMovies);
         }
         else{
             movies.forEach(movie => upcomingMovies.push(movie))
+            movieGridElem.innerHTML = ``
             upcomingMovies.forEach(displayMovies)
-            console.log('upcomingMovies: ', upcomingMovies);
         }
-        console.log('allMovies: ', allMovies);
     }
     catch(err) {
         console.error(err)
@@ -122,13 +119,9 @@ if (!isSearch){
     }
 }
 
-// searchForm.addEventListener('click', clickOutcome)
-
-//make array and push to it only movies whosee titles include innertext
 var arr = new Array()
 
 function getRightMovies(){
-    // alert(input.value)
     movieGridElem.innerHTML = ``
     arr = new Array()
     const str = input.value.toUpperCase().trim()
@@ -136,13 +129,10 @@ function getRightMovies(){
     for (let i = 0; i < allMovies.length; i++){
         var movie = allMovies[i]
         const title = allMovies[i].title.toUpperCase()
-        // var title = movie.title
         if(title.includes(str)){
             arr.push(movie)
-            console.log(input.value)
         }
     }
-    console.log(arr)
     arr.forEach(displayMovies)
 }
 
@@ -165,37 +155,18 @@ function loadMore(){
 function normalize(){
     movieGridElem.innerHTML = ``
     if (movie_cat == "now_playing"){
+        movieGridElem.innerHTML = ``
         nowPlayingMovies.forEach(displayMovies)
     } else if (movie_cat == "top_rated"){
+        movieGridElem.innerHTML = ``
         topRatedMovies.forEach(displayMovies)
     }
     else{
+        movieGridElem.innerHTML = ``
         upcomingMovies.forEach(displayMovies)
     }
-    // allMovies.forEach(displayMovies)
-    console.log("all", allMovies)
 }
 
-// function contains(movie, string){
-//     const title = movie.title
-//     return title.includes(string)
-// }
-
-function displayResults(data) {
-    data.forEach(datum => console.log(datum))
-    data.forEach(insert)
-    input.innerText("Search GIFs...")
-    // map(gifData)
+window.onload = async () => {
+    await fetchMovies()
 }
-
-function insert(movie){
-    url = gif.images.original.url
-    console.log(url)
-    output.innerHTML += `
-    <div class = "gif">
-        <img src="${url}" alt="gif">
-    </div>
-    `
-}
-
-fetchMovies()
