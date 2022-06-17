@@ -89,7 +89,10 @@ const fetchMovies = async () => {
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  searchForMovie();
+  console.log("this submits")
+  if (input.value){
+    searchForMovie();
+  }
   isSearch = true;
 });
 
@@ -187,9 +190,10 @@ function loadMore() {
 
 function normalize() {
   clearDisplay()
+  console.log('movieGridElem.innerHTML: ', movieGridElem.innerHTML);
   if (movie_cat == "now_playing") {
     nowPlayingMovies.forEach(displayMovies);
-    
+    console.log('movieGridElem.innerHTML: ', movieGridElem.innerHTML);
   } else if (movie_cat == "top_rated") {
     topRatedMovies.forEach(displayMovies);
     
@@ -198,21 +202,22 @@ function normalize() {
   }
 }
 
-const searchForMovie = async () =>{
+async function searchForMovie() {
     const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${MY_API_KEY}&language=en-US&query=${input.value}&page=1&include_adult=false`
       );
       const results = await response.json();
-      movies = results.results;
+      movies1 = results.results;
       console.log('results: ', results);
-      console.log('movies: ', movies);
+      console.log('movies: ', movies1);
       clearDisplay()
-      movies.forEach(displayMovies)
+      movies1.forEach(displayMovies)
       
 }
 
 function clearDisplay() {
     movieGridElem.innerHTML = ``;
+    
 }
 
 window.onload = async () => {
