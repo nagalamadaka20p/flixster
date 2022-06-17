@@ -42,23 +42,22 @@ Deployed Application (optional): [https://nagalamadaka20p.github.io/flixster/]
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+https://user-images.githubusercontent.com/77798750/174410053-586bf158-b777-4d87-a343-9520a96af818.mp4
 
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, I definitely felt prepared to complete this assignment, especially after Lab 3 when we learned about fetching data from APIs.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have added a stretch feature where once the user clicked on an image they could see an embedded YouTube video of the movie. I would also try to hide and show different elements rather than clearing my HTML every time and updating one div.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I am pretty satisfied with the overall website. I had some difficulty with fetching different categories of movies, but was eventually able to figure it out. 
 
 ### Open-source libraries used
 
