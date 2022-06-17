@@ -44,7 +44,7 @@ h3{
     background-color: #383838;
 }
 
-#search-button, #clear{
+#search-button, #close-search-btn{
     background-color: #1a1a1d;
     border: 1px solid black;
     border-radius: 5px;

@@ -9,7 +9,7 @@ const movieGridElem = document.querySelector(".movie-grid");
 const searchGridElem = document.querySelector(".search-grid");
 const normal = document.querySelectorAll(".movie-card");
 const searchButton = document.querySelector(".btn");
-const clearButton = document.getElementById("clear");
+const clearButton = document.getElementById("close-search-btn");
 const loadButton = document.getElementById("load");
 const nowPlayingButton = document.getElementById("nowplaying");
 const topRatedButton = document.getElementById("toprated");
@@ -17,7 +17,7 @@ const popularMovieButton = document.getElementById("popularmovies");
 const nowPlayingH = document.getElementById("nowplayingh");
 const topRatedH = document.getElementById("topratedh");
 const popularMovieH = document.getElementById("popularmoviesh");
-const input = document.getElementById("search");
+const input = document.getElementById("search-input");
 const searchForm = document.getElementById("form");
 const MY_API_KEY = "d93fc60a631f709bbd87f117bfdce2ce";
 var allMovies = new Array();
@@ -68,7 +68,6 @@ const fetchMovies = async () => {
     movies = results.results;
 
     movies.forEach((movie) => allMovies.push(movie));
-    // movieGridElem.innerHTML = ``;
     if (movie_cat == "now_playing") {
       movies.forEach((movie) => nowPlayingMovies.push(movie));
       clearDisplay()
@@ -88,13 +87,18 @@ const fetchMovies = async () => {
 };
 
 searchForm.addEventListener("submit", (event) => {
+    
   event.preventDefault();
-  console.log("this submits")
+  
   if (input.value){
     searchForMovie();
   }
-  isSearch = true;
+  
 });
+
+searchButton.addEventListener("click", (event) => {
+    isSearch = true;
+})
 
 clearButton.addEventListener("click", (event) => {
   isSearch = false;
@@ -108,8 +112,6 @@ nowPlayingButton.addEventListener("click", (event) => {
   movie_cat = "now_playing";
   movieGridElem.innerHTML = ``;
   nowPlayingMovies.forEach(displayMovies)
-//   nowPlayingMovies = [];
-//   fetchMovies();
 });
 
 topRatedButton.addEventListener("click", (event) => {
@@ -123,8 +125,6 @@ topRatedButton.addEventListener("click", (event) => {
   if (numClickedTR == 1){
     fetchMovies()
   }
-//   topRatedMovies = [];
-//   fetchMovies();
 });
 
 popularMovieButton.addEventListener("click", (event) => {
@@ -139,8 +139,6 @@ popularMovieButton.addEventListener("click", (event) => {
     fetchMovies()
   }
 
-//   upcomingMovies = [];
-//   fetchMovies();
 });
 
 if (!isSearch) {
@@ -167,13 +165,9 @@ function getRightMovies() {
     }
   }
   arr.forEach(displaySearch);
-//   searchGridElem.getElementsByClassName.display = "none";
-//   movieGridElem.getElementsByClassName.display = "grid";
 }
 
 function x_clicked() {
-//     searchGridElem.getElementsByClassName.display = "grid";
-//   movieGridElem.getElementsByClassName.display = "none";
   form.reset();
   normalize();
 }
@@ -190,10 +184,10 @@ function loadMore() {
 
 function normalize() {
   clearDisplay()
-  console.log('movieGridElem.innerHTML: ', movieGridElem.innerHTML);
+  
   if (movie_cat == "now_playing") {
     nowPlayingMovies.forEach(displayMovies);
-    console.log('movieGridElem.innerHTML: ', movieGridElem.innerHTML);
+    
   } else if (movie_cat == "top_rated") {
     topRatedMovies.forEach(displayMovies);
     
@@ -208,8 +202,8 @@ async function searchForMovie() {
       );
       const results = await response.json();
       movies1 = results.results;
-      console.log('results: ', results);
-      console.log('movies: ', movies1);
+      
+      
       clearDisplay()
       movies1.forEach(displayMovies)
       
